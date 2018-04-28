@@ -4,7 +4,6 @@ import cv2
 import numpy as np
 
 import tensorflow as tf
-from alexnet import AlexNet
 
 def evaluate():
          
