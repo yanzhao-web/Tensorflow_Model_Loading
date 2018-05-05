@@ -6,6 +6,8 @@ import tensorflow as tf
 
 def evaluate():
          
+	test_txt = './txt/test.txt'
+	
 	log_dir = './tmp/finetune_alexnet/n01440764/checkpoints/model_epoch10.ckpt'
 	model_path = './tmp/finetune_alexnet/n01440764/checkpoints/model_epoch10.ckpt.meta'        
 
@@ -16,10 +18,13 @@ def evaluate():
 	image_dir = os.path.join(current_dir, 'data','test','')
 
 	img_files=[]
-	for file in os.listdir(image_dir):
-		name=file.split('.')[-1]
-		if  name == 'JPEG':
-			img_files.append(image_dir+file)
+        with open(test_txt,'r') as f:
+                lines = f.readlines()
+                for line in lines:
+                        line = line.strip('\n')
+                        name=line.split('.')[-1]
+                        if  name == 'JPEG':
+                                img_files.append(image_dir+line)
 
 	#load all images
 	imgs = []
