@@ -1,0 +1,1 @@
+Local branch is associated remote branch!
